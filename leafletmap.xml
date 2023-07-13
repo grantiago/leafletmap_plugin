@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="plugin" group="system" method="upgrade">
+    <name>Leaflet Map</name>
+    <author>Grant Amaral</author>
+    <creationDate>2023-07-10</creationDate>
+    <copyright>Copyright (C) 2023 Grant Amaral</copyright>
+    <license>GPLv2</license>
+    <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
+    <authorEmail>grant@grantamaral.com</authorEmail>
+    <authorUrl>https://grantamaral.com/</authorUrl>
+    <version>0.0.1</version>
+    <group>System</group>
+
+    <files>
+        <filename plugin="leafletmap">leafletmap.php</filename>
+        <filename plugin="leafletmap">index.html</filename>
+        <filename plugin="leafletmap">readme.md</filename>
+        <folder plugin="leafletmap">language</folder>
+        <folder plugin="leafletmap">css</folder>
+        
+        <folder plugin="leafletmap">js</folder>
+
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_system_leafletmap.ini</language>
+        <language tag="en-GB">en-GB/plg_system_leafletmap.sys.ini</language>
+        <language tag="es-ES">es-ES/plg_system_leafletmap.sys.ini</language>
+        <language tag="es-ES">es-ES/plg_system_leafletmap.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+           
+            <fieldset name="settings" label="Settings">
+                <field
+                    name="latitude"
+                    type="text"
+                    default="43.66"
+                    label="PLG_SYSTEM_LEAFLETMAP_LATITUDE"
+                    description="PLG_SYSTEM_LEAFLETMAP_LATITUDE_DESC"
+                />
+                <field
+                    name="longitude"
+                    type="text"
+                    default="-116.23"
+                    label="PLG_SYSTEM_LEAFLETMAP_LONGITUDE"
+                    description="PLG_SYSTEM_LEAFLETMAP_LONGITUDE_DESC"
+                />
+                <field
+                    name="zoom"
+                    type="int"
+                    default="13"
+                    label="PLG_SYSTEM_LEAFLETMAP_ZOOM"
+                    description="PLG_SYSTEM_LEAFLETMAP_ZOOM_DESC"
+                />
+                <field
+                    name="marker_title"
+                    type="text"
+                    default="Map Marker"
+                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE"
+                    description="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE_DESC"
+                />
+                <field name="basemap"
+                    type="radio"
+                    default="Open street map"
+                    description="Which base map?"
+                    label="PLG_SYSTEM_LEAFLETMAP_BASEMAP_LABEL">
+                    <option value="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png">Topo</option>
+                    <option value="satellite">Satellite</option>
+                    <option value="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png">Open street map</option>
+                    <option value="hybrid">Hybrid</option>
+                </field>
+                <field
+                    name="div width"
+                    type="text"
+                    default="100%"
+                    label="PLG_SYSTEM_LEAFLETMAP_DIV_WIDTH"
+                    description="PLG_SYSTEM_LEAFLETMAP_DIV_WIDTH_DESC"
+                />
+                <field
+                    name="div height"
+                    type="text"
+                    default="150px"
+                    label="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT"
+                    description="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT_DESC"
+                />
+
+                <field name="kml_toggle" type="radio" default="0" disabled="disabled" label="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE" description="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                    name="kml"
+                    type="text"
+                    default=""
+                    hint="/kml/staircase.kml"
+                    label="PLG_SYSTEM_LEAFLETMAP_KML"
+                    description="PLG_SYSTEM_LEAFLETMAP_KML_DESC"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,7 @@
+/* #leaflet-map { 
+	height: 180px; 
+	} */
+[id^="leaflet-map"] {
+	z-index: 1;
+	margin: 10px auto;
+}
