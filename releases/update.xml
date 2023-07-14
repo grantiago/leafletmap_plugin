@@ -6,7 +6,7 @@
         <element>leafletmap_plugin</element>
         <type>plugin</type>
         <version>0.0.3</version>
-        <infourl title="My Component" >https://github.com/grantiago/leafletmap_plugin/readme.md</infourl>
+        <infourl title="Leaflet Map Plugin" >https://github.com/grantiago/leafletmap_plugin/readme.md</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/leafletmap_0.0.3.zip</downloadurl>
         </downloads>
@@ -14,7 +14,7 @@
             <tag>stable</tag>
         </tags>
         <maintainer>L Rio</maintainer>
-        <maintainerurl>https://www.example.com</maintainerurl>
+        <maintainerurl>https://www.lrio.com</maintainerurl>
         <targetplatform name="joomla" version="4.[0-9]"/>
     </update>
 </updates>
