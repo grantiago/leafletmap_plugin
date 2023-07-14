@@ -6,8 +6,15 @@
 
 - [x] marker state onload
 - [ ] something important
+- [ ] update the features in the language files
+- [ ] make joomla 3 backward compatable
 
-## v 0.0.3 
+### v 0.0.4
+
+- added update server
+- added changelog
+
+### v 0.0.3 
 
 - added full screen plugin
 - added kml layer
@@ -16,7 +23,7 @@
 - changed the container name from leaflet-map to map to remove all the instances of str_replace
 - added toggle setting to open the marker title on load
 
-## v 0.0.2 added full screen plugin
+### v 0.0.2 added full screen plugin
 
 - all the css and js are in the plugin dir
 - the language files are installed in the admin/language/ll-LL dirs automatically
@@ -27,7 +34,7 @@
 - added a field to select the basemap in the xml. not implemented in the php yet.
 - added z index to custom css to keep the menu infront of map
 
-## v 0.0.1
+### v 0.0.1
 
 initial release.
 
