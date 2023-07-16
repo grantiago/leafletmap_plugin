@@ -2,7 +2,7 @@
 <updates>
     <update>
         <name>Leaflet Map Plugin</name>
-        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. kml display. </description>
+        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. kml display. Update system</description>
         <element>leafletmap_plugin</element>
         <type>plugin</type>
         <version>1.0.3</version>
