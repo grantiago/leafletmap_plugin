@@ -16,6 +16,6 @@
         <maintainer>L Rio</maintainer>
         <section>dev</section>
         <maintainerurl>https://github.com/grantiago/</maintainerurl>
-        <targetplatform name="joomla" version="4.[0-9]"/>
+        <targetplatform name="joomla" version="4.3.2"/>
     </update>
 </updates>
