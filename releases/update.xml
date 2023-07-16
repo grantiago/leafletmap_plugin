@@ -6,7 +6,7 @@ a<?xml version="1.0" encoding="utf-8"?>
         <element>leafletmap_plugin</element>
         <type>plugin</type>
         <version>1.0.3</version>
-        <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/\#readme</infourl>
+        <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/raw/main/releases/leafletmap_0.0.3.zip</downloadurl>
         </downloads>
