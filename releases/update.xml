@@ -2,7 +2,7 @@
 <updates>
     <update>
         <name>Leaflet Map Plugin</name>
-        <description>A description of the update</description>
+        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. kml display. </description>
         <element>leafletmap_plugin</element>
         <type>plugin</type>
         <version>0.0.3</version>
@@ -14,7 +14,7 @@
             <tag>stable</tag>
         </tags>
         <maintainer>L Rio</maintainer>
-        <maintainerurl>https://www.lrio.com</maintainerurl>
+        <maintainerurl>https://github.com/grantiago/</maintainerurl>
         <targetplatform name="joomla" version="4.[0-9]"/>
     </update>
 </updates>
