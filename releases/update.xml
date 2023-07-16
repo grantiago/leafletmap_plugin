@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+a<?xml version="1.0" encoding="utf-8"?>
 <updates>
     <update>
         <name>Leaflet Map Plugin</name>
@@ -6,7 +6,7 @@
         <element>leafletmap_plugin</element>
         <type>plugin</type>
         <version>0.0.3</version>
-        <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/README.md</infourl>
+        <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/#readme</infourl>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/raw/main/releases/leafletmap_0.0.3.zip</downloadurl>
         </downloads>
