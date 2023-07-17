@@ -18,7 +18,9 @@ select basemaps: osm, opentopo
 ## toDo
 
 - [x] marker state onload
-- [ ] marker state onload
+- [x] toggle scroll wheel zoom
+- [ ] geojson feature
+- [ ] add checksum to update.xml
 
 ## v 0.0.3 added full screen plugin
 
@@ -26,6 +28,7 @@ select basemaps: osm, opentopo
 - omnivore plugin js and css
 - fit bounds on kml layer
 - changed the container name from leaflet-map to map to remove all the instances of str_replace
+- + joomla update system
 
 ## v 0.0.2 added full screen plugin
 
