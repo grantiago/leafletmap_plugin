@@ -11,8 +11,8 @@
         <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/tree/main#readme</infourl>
         <downloads>
             <!-- <downloadurl type="full" format="zip">https://lrio.com/test/leafletmap_1.0.3.zip</downloadurl> -->
-            <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/leafletmap_1.0.3.zip</downloadurl>
-            <downloadsource type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/leafletmap_1.0.3.zip</downloadsource>
+            <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/blob/main/releases/leafletmap_1.0.3.zip</downloadurl>
+            <downloadsource type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/blob/main/releases/leafletmap_1.0.3.zip</downloadsource>
         </downloads>
         <tags>
             <tag>stable</tag>
@@ -32,8 +32,7 @@
         <!-- <infourl title="Leaflet Map Plugin">https://lrio.com/test/readme.md</infourl> -->
         <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/tree/main#readme</infourl>
         <downloads>
-            <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/leafletmap_1.0.3.zip</downloadurl>
-            <!-- <downloadurl type="full" format="zip">https://lrio.com/test/leafletmap_1.0.3.zip</downloadurl> -->
+            <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/blob/main/releases/leafletmap_1.0.3.zip</downloadurl>
             <!-- <downloadurl type="full" format="zip">https://lrio.com/test/leafletmap_1.0.3.zip</downloadurl> -->
         </downloads>
         <tags>
