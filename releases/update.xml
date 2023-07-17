@@ -6,7 +6,7 @@
         <element>leafletmap</element>
         <type>plugin</type>
         <folder>system</folder>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
         <!-- <infourl title="Leaflet Map Plugin">https://lrio.com/test/readme.md</infourl> -->
         <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/tree/main#readme</infourl>
         <downloads>
