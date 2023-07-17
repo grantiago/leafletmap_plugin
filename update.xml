@@ -2,7 +2,7 @@
 <updates>
     <update>
         <name>Leaflet Map Plugin</name>
-        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. kml display. </description>
+        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. kml display. Joomla Update System. </description>
         <element>leafletmap</element>
         <type>plugin</type>
         <folder>system</folder>
@@ -24,7 +24,7 @@
     </update>
     <update>
         <name>Leaflet Map Plugin</name>
-        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. + kml display. + joomla update server.</description>
+        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. + kml display. + Joomla update System.</description>
         <element>leafletmap</element>
         <type>plugin</type>
         <folder>system</folder>
