@@ -21,24 +21,4 @@
         <targetplatform name="joomla" version="4.[0-9]"/>
         <client>site</client>        
     </update>
-    <update>
-        <name>Leaflet Map Plugin</name>
-        <description>Added several functions: Toggle zoom-wheel. Toggle open title on load. kml display. Joomla Update System. </description>
-        <element>leafletmap</element>
-        <type>plugin</type>
-        <folder>system</folder>
-        <version>1.0.3</version>
-        <infourl title="Leaflet Map Plugin">https://github.com/grantiago/leafletmap_plugin/tree/main#readme</infourl>
-        <downloads>
-            <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.3/leafletmap_1.0.3.zip</downloadurl>
-            <downloadsource type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.3/leafletmap_1.0.3.zip</downloadsource>
-        </downloads>
-        <tags>
-            <tag>stable</tag>
-        </tags>
-        <maintainer>L Rio</maintainer>
-        <maintainerurl>https://github.com/grantiago/leafletmap_plugin</maintainerurl>
-        <targetplatform name="joomla" version="4.[0-9]"/>
-        <client>site</client>        
-    </update>
 </updates>
