@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="4.0" type="plugin" group="system" method="upgrade">
+<extension version="4" type="plugin" group="system" method="upgrade">
     <name>Leaflet Map</name>
     <author>Grant Amaral</author>
     <creationDate>2023-07-10</creationDate>
@@ -7,18 +7,18 @@
     <license>GPLv2</license>
     <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
     <authorEmail>grant@grantamaral.com</authorEmail>
-    <authorUrl>https://grantamaral.com/</authorUrl>
-    <version>0.0.1</version>
+    <authorUrl>https://lrio.com/</authorUrl>
+    <version>1.0.4</version>
     <group>System</group>
 
     <files>
         <filename plugin="leafletmap">leafletmap.php</filename>
-        <filename plugin="leafletmap">index.html</filename>
-        <filename plugin="leafletmap">readme.md</filename>
-        <folder plugin="leafletmap">language</folder>
-        <folder plugin="leafletmap">css</folder>
-        
-        <folder plugin="leafletmap">js</folder>
+        <filename>index.html</filename>
+        <filename>readme.md</filename>
+        <filename>changelog.md</filename>
+        <folder>language</folder>
+        <folder>css</folder>
+        <folder>js</folder>
 
     </files>
     <languages folder="language">
@@ -29,8 +29,8 @@
     </languages>
     <config>
         <fields name="params">
-           
             <fieldset name="settings" label="Settings">
+            <field name="version" type="note" class="alert alert-info" label="Version: " description="PLG_SYSTEM_LEAFLETMAP_VERSION" />
                 <field
                     name="latitude"
                     type="text"
@@ -61,13 +61,20 @@
                 />
                 <field name="basemap"
                     type="radio"
-                    default="Open street map"
+                    default="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     description="Which base map?"
                     label="PLG_SYSTEM_LEAFLETMAP_BASEMAP_LABEL">
-                    <option value="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png">Topo</option>
-                    <option value="satellite">Satellite</option>
+                    <option value="https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png">Open Topo</option>
+                    <option value="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}">Esri Satellite</option>
                     <option value="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png">Open street map</option>
-                    <option value="hybrid">Hybrid</option>
+                </field>
+                <field name="title_toggle"
+                    type="radio"
+                    default="1"
+                    description="title opon on load"
+                    label="title_toggle open on load.">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
                 </field>
                 <field
                     name="div width"
@@ -83,8 +90,12 @@
                     label="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT"
                     description="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT_DESC"
                 />
-
                 <field name="kml_toggle" type="radio" default="0" disabled="disabled" label="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE" description="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="zoom_wheel" type="radio" 
+                    default="1"  label="disable zoom_wheel" description="zoom_wheel_DESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
@@ -99,4 +110,7 @@
             </fieldset>
         </fields>
     </config>
+    <updateservers> 
+        <server type="extension" priority="1" name="Leaflet Map Plugin Repository">https://raw.githubusercontent.com/grantiago/leafletmap_plugin/main/update.xml</server>
+    </updateservers>
 </extension>
