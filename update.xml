@@ -11,7 +11,7 @@
             <downloadurl type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.4/leafletmap_1.0.4.zip</downloadurl>
             <downloadsource type="full" format="zip">https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.4/leafletmap_1.0.4.zip</downloadsource>
         </downloads>
-        <sha256>739bcf00768eae86794223fdd3edf395743f75e7523d434d90f95c7a2166bd44</sha256>
+        <sha256>07ed1e241ff9407e188facbc117ec3b801b90f4d87cc60c422dd71ba3adecf95</sha256>
         <tags>
             <tag>stable</tag>
         </tags>
