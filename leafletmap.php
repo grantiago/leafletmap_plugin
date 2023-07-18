@@ -59,9 +59,10 @@ class PlgSystemLeafletMap extends CMSPlugin
         $zoom = $this->params->get('zoom', '13');
         $kml_toggle = $this->params->get('kml_toggle', '0');
         $kml = $this->params->get('kml', '');
-        var_dump($kml);
+        $title_toggle = $this->params->get('title_toggle', '1');
+        $zoom_wheel = $this->params->get('zoom_wheel', '1');
 
-        // Override the parameters with values from the content call, if available
+    // Override the parameters with values from the content call, if available
         if (isset($params['lat'])) {
             $lat = $params['lat'];
         }
@@ -86,91 +87,129 @@ class PlgSystemLeafletMap extends CMSPlugin
         if (isset($params['kml'])) {
             $kml = $params['kml'];
         }
-
-        var_dump($kml);
-        // Generate the map container ID with auto-increment
-        $mapContainerId = 'map' . $this->mapContainerCounter;
-$this->mapContainerCounter++;
-
-// Check if the map container has already been initialized
-if (in_array($mapContainerId, $this->initializedMapContainers)) {
-    return '<div id="' . $mapContainerId . '"></div>';
-}
-
-// Set the flag to indicate the map container has been initialized
-$this->initializedMapContainers[] = $mapContainerId;
-
-// Get the map container options from the content call or use defaults
-$mapContainerOptions = $this->getContainerOptions($params, 'map');
-$mapContainerOptions['style'] = 'width: ' . $width . '; height: ' . $height . ';';
-
-// Generate the map HTML with the specified container options and initialization script
-$html = '<div id="' . $mapContainerId . '" ' . $this->renderHtmlAttributes($mapContainerOptions) . '></div>';
-$html .= '<script>
-    document.addEventListener(\'DOMContentLoaded\', function() {
-        var mapContainer_' . $mapContainerId . ' = document.getElementById(\'' . $mapContainerId . '\');
-        var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, attribution: "© OpenStreetMap" });
-        const openTopoMap = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {maxZoom: 19, attribution: "@OpenTopoMap" });
-
-        var map_' . $mapContainerId . ' = L.map(mapContainer_' . $mapContainerId . ').setView([' . $lat . ', ' . $long . '], ' . $zoom . ');    
-        L.tileLayer(\'' . $basemap . '\').addTo(map_' . $mapContainerId . ');
-        L.marker([' . $lat . ', ' . $long . ']).addTo(map_' . $mapContainerId . ').bindPopup(\'' . Text::_($markerTitle) . '\').openPopup();
-
-        var baseMaps = {
-            "OpenStreetMap": osm,
-            "OpenTopoMap": openTopoMap 
-        };
-
-        var layerControl = L.control.layers(baseMaps).addTo(map_' . $mapContainerId . ');
-        var kmlLayer = null;
-        var bounds = null;
-        var kmlUrl = "' . $kml . '";
-
-        if (true && kmlUrl !== "") {
-            kmlLayer = omnivore.kml(kmlUrl, null, L.geoJson(null, {
-                onEachFeature: function(feature, layer) {
-                    if (layer instanceof L.Marker) {
-                        layer.bindPopup(feature.properties.name);
-                    }
-                }
-            }));
-
-            kmlLayer.on(\'ready\', function() {
-                bounds = kmlLayer.getBounds();
-                map_' . $mapContainerId . '.fitBounds(bounds);
-            });
-
-            kmlLayer.addTo(map_' . $mapContainerId . ');
+        if (isset($params['title_toggle'])) {
+            $title_toggle = $params['title_toggle'];
+        }
+        if (isset($params['zoom_wheel'])) {
+            $zoom_wheel = $params['zoom_wheel'];
         }
 
-        // create a fullscreen button and add it to the map
-        L.control.fullscreen({
-            position: "topleft",
-            title: "Show me the fullscreen!",
-            titleCancel: "Exit fullscreen mode",
-            content: null,
-            forceSeparateButton: true,
-            forcePseudoFullscreen: true,
-            fullscreenElement: false
-        }).addTo(map_' . $mapContainerId . ');
+        // $zoom_wheel = '0';
+        // $zoom_wheel = false;
+        // $zoom_wheel = '0';
+        var_dump($zoom_wheel);
 
-        map_' . $mapContainerId . '.on(\'enterFullscreen\', function(){
-            if (kmlLayer && bounds) {
-                map_' . $mapContainerId . '.fitBounds(bounds);
+        // Generate the map container ID with auto-increment
+        $mapContainerId = 'map' . $this->mapContainerCounter;
+
+        $this->mapContainerCounter++;
+
+    // Check if the map container has already been initialized
+    if (in_array($mapContainerId, $this->initializedMapContainers)) {
+        return '<div id="' . $mapContainerId . '"></div>';
+    }
+
+    // Set the flag to indicate the map container has been initialized
+    $this->initializedMapContainers[] = $mapContainerId;
+
+    // Get the map container options from the content call or use defaults
+    $mapContainerOptions = $this->getContainerOptions($params, 'map');
+    $mapContainerOptions['style'] = 'width: ' . $width . '; height: ' . $height . ';';
+            $markerPopupCode = 'L.marker([' . $lat . ', ' . $long . ']).addTo(map_' . $mapContainerId . ').bindPopup(\'' . Text::_($markerTitle) . '\')';
+            // $title_toggle = 1;
+            if ($title_toggle == 0) {
+                $markerPopupCode .= '.openPopup()';
             }
-        });
 
-        map_' . $mapContainerId . '.on(\'exitFullscreen\', function(){
-            if (kmlLayer && bounds) {
-                map_' . $mapContainerId . '.fitBounds(bounds);
+            $markerPopupCode .= ';';
+
+            // $html .= '<script>' . $markerPopupCode . '</script>';
+
+    // Generate the map HTML with the specified container options and initialization script
+    $html = '<div id="' . $mapContainerId . '" ' . $this->renderHtmlAttributes($mapContainerOptions) . '></div>';
+        // $html .= '<script>' . $markerPopupCode . '</script>';
+        $html .= '<script>
+        document.addEventListener(\'DOMContentLoaded\', function() {
+            var mapContainer_' . $mapContainerId . ' = document.getElementById(\'' . $mapContainerId . '\');
+            var osm = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 19, attribution: "© OpenStreetMap" });
+            const openTopoMap = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {maxZoom: 19, attribution: "@OpenTopoMap" });
+            var Esri_WorldImagery = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {attribution: "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+        });
+            
+                //  var map_' . $mapContainerId . ' = L.map(mapContainer_' . $mapContainerId . ',  { scrollWheelZoom: false }).setView([' . $lat . ', ' . $long . '], ' . $zoom . ');
+                // var map_' . $mapContainerId . ' = L.map(mapContainer_' . $mapContainerId . ').setView([' . $lat . ', ' . $long . '], ' . $zoom . ');
+            var map_' . $mapContainerId . ';
+            if (' . ($zoom_wheel ? 'false' : 'true') . ') {
+                map_' . $mapContainerId . ' = L.map(mapContainer_' . $mapContainerId . ').setView([' . $lat . ', ' . $long . '], ' . $zoom . ');
+            } else {
+                map_' . $mapContainerId . ' = L.map(mapContainer_' . $mapContainerId . ', { scrollWheelZoom: false }).setView([' . $lat . ', ' . $long . '], ' . $zoom . ');
             }
+
+            L.tileLayer(\'' . $basemap . '\').addTo(map_' . $mapContainerId . ');
+
+            var marker_' . $mapContainerId . ' = L.marker([' . $lat . ', ' . $long . ']).addTo(map_' . $mapContainerId . ').bindPopup(\'' . Text::_($markerTitle) . '\');';
+
+        if ($title_toggle == 1) {
+            $html .= 'marker_' . $mapContainerId . '.openPopup();';
+        }
+
+    $html .= '
+            var baseMaps = {
+                "OpenStreetMap": osm,
+                "TopoMap": openTopoMap, 
+                "Satellite": Esri_WorldImagery 
+            };
+
+            var layerControl = L.control.layers(baseMaps).addTo(map_' . $mapContainerId . ');
+            var kmlLayer = null;
+            var bounds = null;
+            var kmlUrl = "' . $kml . '";
+
+            if (true && kmlUrl !== "") {
+                kmlLayer = omnivore.kml(kmlUrl, null, L.geoJson(null, {
+                    onEachFeature: function(feature, layer) {
+                        if (layer instanceof L.Marker) {
+                            layer.bindPopup(feature.properties.name);
+                        }
+                    }
+                }));
+
+                kmlLayer.on(\'ready\', function() {
+                    bounds = kmlLayer.getBounds();
+                    map_' . $mapContainerId . '.fitBounds(bounds);
+                });
+
+                kmlLayer.addTo(map_' . $mapContainerId . ');
+            }
+
+            // create a fullscreen button and add it to the map
+            L.control.fullscreen({
+                position: "topleft",
+                title: "Show me the fullscreen!",
+                titleCancel: "Exit fullscreen mode",
+                content: null,
+                forceSeparateButton: true,
+                forcePseudoFullscreen: true,
+                fullscreenElement: false
+            }).addTo(map_' . $mapContainerId . ');
+
+            map_' . $mapContainerId . '.on(\'enterFullscreen\', function(){
+                if (kmlLayer && bounds) {
+                    map_' . $mapContainerId . '.fitBounds(bounds);
+                }
+            });
+
+            map_' . $mapContainerId . '.on(\'exitFullscreen\', function(){
+                if (kmlLayer && bounds) {
+                    map_' . $mapContainerId . '.fitBounds(bounds);
+                }
+            });
+
         });
+    </script>';
 
-    });
-</script>';
-
-return $html;
-}
+    return $html;
+    }
 
     private function getContainerOptions($params, $type)
     {
