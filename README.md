@@ -1,46 +1,42 @@
-# leafletmap_plugin
-plugin for displaying leaflet maps in joomla 4
+## leaflet system plugin
 
-leaflet system plugin. 
+- Supports multiple maps on one page in multiple articles.
+- Override defaults in plugin hook
+- usage: `{leafletmap lat="44.66" lng="-116.23" marker_title="grant house"}`
+  - or: `{leafletmap}`
+- multi language: en-GB, es_ES
+- select basemaps: osm, opentopo
+- display kml files
+- toggle zoom with scroll wheel
+- toggle title open/close on load
+- override all settings in the hook
+- set the map height and width
 
-Supports multiple maps on one page in multiple articles.
-
-Override defaults in plugin hook
-
-usage: `{leafletmap lat="44.66" lng="-116.23" marker_title="grant house"}`
-
-or: `{leafletmap}`
-
-multi language: en-GB, es_ES
-
-select basemaps: osm, opentopo
-
-## toDo
+### toDo
 
 - [x] marker state onload
 - [x] toggle scroll wheel zoom
-- [ ] geojson feature
-- [ ] add checksum to update.xml
+- [ ] geojson feature -- duplicate kml layer
+- [x] add checksum to update.xml on github
+- [ ] map alignment on page
+- [ ] fix the language files
+- [ ] re-upload all files to github
+- [ ] clone it here
 
-## v 0.0.3 added full screen plugin
+[changelog.md](./changelog.md)
 
-- added kml layer
-- omnivore plugin js and css
-- fit bounds on kml layer
-- changed the container name from leaflet-map to map to remove all the instances of str_replace
-- + joomla update system
+### notes
 
-## v 0.0.2 added full screen plugin
+[Joomla Deploying Update Sever](https://docs.joomla.org/Deploying_an_Update_Server)
 
-- all the css and js are in the plugin dir
-- the language files are installed in the admin/language/ll-LL dirs automatically
-- added the full screen js and css
-- moved the leaflet images dir to css/images
-- added fieldset groups for description and settings
-- changed the names of the language files replacing the en-GB. etc prefix with plg_system_xxx
-- added a field to select the basemap in the xml. not implemented in the php yet.
-- added z index to custom css to keep the menu infront of map
+[Adding_an_update_server](https://docs.joomla.org/Special:MyLanguage/J3.x:Developing_an_MVC_Component/Adding_an_update_server)
 
-## v 0.0.1
+### updating
 
-initial release.
+- any changes zip them in a file.
+- create an new tag - upload on github.
+- add a desc.
+- upload the zip.
+- modify the update.xml to the new version, url and checksum
+- get the checksum locally -> sha256sum <filename>
+- add it to update.xml
