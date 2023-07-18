@@ -22,6 +22,7 @@
 - [ ] fix the language files
 - [ ] re-upload all files to github
 - [ ] clone it here
+- [ ] css on width not correct on mobile
 
 [changelog.md](./changelog.md)
 
