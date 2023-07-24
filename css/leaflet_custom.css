@@ -1,0 +1,19 @@
+
+/* this would have to go in the admin template. I believe */
+.indented-field {
+	margin-left: 20px;
+	/* Adjust the value as needed for the desired indentation */
+}
+div[id^="map"] {
+	z-index: 1;
+	margin: 10px auto;
+	/* Add any other default styles for the map container here */
+}
+@media (max-width: 768px) {
+	div[id^="map"] {
+		height: inherit;
+		/* width: 100%; */
+		width: 100% !important;
+	}
+}
+

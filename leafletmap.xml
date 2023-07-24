@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4" type="plugin" group="system" method="upgrade">
+    <name>System - Leaflet Map</name>
+    <author>Grant Amaral</author>
+    <creationDate>2023-07-10</creationDate>
+    <copyright>Copyright (C) 2023 Grant Amaral</copyright>
+    <license>GPLv2</license>
+    <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
+    <authorEmail>grant@grantamaral.com</authorEmail>
+    <authorUrl>https://lrio.com/</authorUrl>
+    <version>1.0.5</version>
+
+    <files>
+        <filename plugin="leafletmap">leafletmap.php</filename>
+        <filename>index.html</filename>
+        <filename>changelog.md</filename>
+        <folder>language</folder>
+        <folder>css</folder>
+        <folder>js</folder>
+
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/plg_system_leafletmap.ini</language>
+        <language tag="en-GB">en-GB/plg_system_leafletmap.sys.ini</language>
+        <language tag="es-ES">es-ES/plg_system_leafletmap.sys.ini</language>
+        <language tag="es-ES">es-ES/plg_system_leafletmap.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="settings" label="Settings">
+                <field
+                    name="latitude"
+                    type="text"
+                    default="43.66"
+                    label="PLG_SYSTEM_LEAFLETMAP_LATITUDE"
+                    description="PLG_SYSTEM_LEAFLETMAP_LATITUDE_DESC"
+                />
+                <field
+                    name="longitude"
+                    type="text"
+                    default="-116.23"
+                    label="PLG_SYSTEM_LEAFLETMAP_LONGITUDE"
+                    description="PLG_SYSTEM_LEAFLETMAP_LONGITUDE_DESC"
+                />
+                <field
+                    name="zoom"
+                    type="int"
+                    default="13"
+                    label="PLG_SYSTEM_LEAFLETMAP_ZOOM"
+                    description="PLG_SYSTEM_LEAFLETMAP_ZOOM_DESC"
+                />
+                <field
+                    name="marker_title"
+                    type="text"
+                    default="PLG_SYSTEM_LEAFLETMAP_MARKER_DEFAULT"
+                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE"
+                    description="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE_DESC"
+                />
+                <field name="marker_color" type="list" label="PLG_SYSTEM_LEAFLETMAP_MARKER_COLOR">
+                    <option value="">Please Select</option>
+                    <option value="option1">Custom Icon URL</option>
+                    <option value="option2">Default - blue</option>
+                    <option value="option2">PLG_SYSTEM_LEAFLETMAP_MARKER_RED</option>
+                </field>
+                <field name="marker_custom" 
+                    type="text" 
+                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_CUSTOM" 
+                    description="This field depends on the first field value." 
+                    showon="marker_color:option1" 
+                />
+                <field name="basemap"
+                    type="radio"
+                    default="0"
+                    description="Which base map?"
+                    label="PLG_SYSTEM_LEAFLETMAP_BASEMAP_LABEL">
+                    <option value="0">Open Street Map</option>
+                    ; esri topo is us only
+                    <option value="1">ESRI Satellite</option>
+                    <option value="2">ESRI Topo</option>
+                    <option value="3">Open Topo</option>
+
+                </field>
+                <field name="title_toggle"
+                    type="radio"
+                    default="1"
+                    description="title open on load"
+                    label="PLG_SYSTEM_LEAFLETMAP_TITLE_TOGGLE_ON_LOAD">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="div_width"
+                    type="text"
+                    default="100%"
+                    label="PLG_SYSTEM_LEAFLETMAP_DIV_WIDTH"
+                    description="PLG_SYSTEM_LEAFLETMAP_DIV_WIDTH_DESC"
+                />
+                <field name="div_height"
+                    type="text"
+                    default="150px"
+                    label="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT"
+                    description="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT_DESC"
+                />
+                <field name="kml_toggle" type="radio" default="0" disabled="disabled" label="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE" description="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                    <option value="2">en the future</option>
+                </field>
+                <field name="zoom_wheel" type="radio" default="1" label="PLG_SYSTEM_LEAFLETMAP_DISABLE_ZOOM_WHEEL" description="zoom_wheel_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                    name="kml"
+                    type="text"
+                    default=""
+                    hint="/kml/staircase.kml"
+                    label="PLG_SYSTEM_LEAFLETMAP_KML"
+                    description="PLG_SYSTEM_LEAFLETMAP_KML_DESC"
+                />
+                <field
+                    name="geojson"
+                    disabled="disabled"
+                    type="text"
+                    default=""
+                    hint="set this in the hook."
+                    label="PLG_SYSTEM_LEAFLETMAP_GEOJSON_URL"
+                    description="PLG_SYSTEM_LEAFLETMAP_GEOJSON_DESC"
+                />
+                <field
+                    name="toggle_css"
+                    type="radio"
+                    label="PLG_SYSTEM_LEAFLETMAP_CSS_TOGGLE"
+                    description="Enable or disable the CSS rule."
+                    default="0">
+                    <option value="1">PLG_SYSTEM_LEAFLETMAP_CSS_TOGGLE_HIDE</option>
+                    <option value="0">PLG_SYSTEM_LEAFLETMAP_CSS_TOGGLE_SHOW</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+    <updateservers> 
+        <server type="extension" priority="1" name="Leaflet Map Plugin Repository">https://raw.githubusercontent.com/grantiago/leafletmap_plugin/main/update.xml</server>
+    </updateservers>
+</extension>
