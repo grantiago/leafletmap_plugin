@@ -1,14 +1,34 @@
 
-/* this would have to go in the admin template. I believe */
-.indented-field {
-	margin-left: 20px;
-	/* Adjust the value as needed for the desired indentation */
+/* this would have to go in the admin template. 
+ * for the indented field in xml -> settings
+ * I believe 
+ .indented-field {
+ 		margin-left: 20px;
+ 	}
+ */
+
+.float-left {
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.float-right {
+	float: right;
+	margin-left: 10px;
 }
 div[id^="map"] {
-	z-index: 1;
-	margin: 10px auto;
-	/* Add any other default styles for the map container here */
+	/* position: relative; */
+	z-index: 2;
+	/* margin: 10px auto; */
+	/* margin: 0 auto; */
+	/* padding: 10px; */
 }
+.leaflet-pseudo-fullscreen {
+	z-index: 300 !important;
+}
+
+
 @media (max-width: 768px) {
 	div[id^="map"] {
 		height: inherit;

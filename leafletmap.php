@@ -39,8 +39,8 @@ class PlgSystemLeafletMap extends CMSPlugin
             {
                 
                 JFactory::getDocument()->addStyleSheet('/plugins/system/leafletmap/css/leaflet.css');
-                JFactory::getDocument()->addStyleSheet('/plugins/system/leafletmap/css/leaflet_custom.css');
                 JFactory::getDocument()->addStyleSheet('/plugins/system/leafletmap/css/Control.FullScreen.css');
+                JFactory::getDocument()->addStyleSheet('/plugins/system/leafletmap/css/leaflet_custom.css');
                 JFactory::getDocument()->addScript('/plugins/system/leafletmap/js/leaflet.js');
                 JFactory::getDocument()->addScript('//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js');
                 JFactory::getDocument()->addScript('/plugins/system/leafletmap/js/Control.FullScreen.js');
@@ -108,11 +108,23 @@ class PlgSystemLeafletMap extends CMSPlugin
 
                 // Set the flag to indicate the map container has been initialized
                 $this->initializedMapContainers[] = $mapContainerId;
-
+        $float = 'right';
+        if ($float == 1) {
+            $float_class = "float-left ";
+        } 
+        if ($float == 'right') {
+            $float_class = "float-right ";
+        } else {
+            $float_class ="";
+        }
+        var_dump($float_class);
                 // Get the map container options from the content call or use defaults
                     // $mapContainerOptions = $this->getContainerOptions($params, 'map');
                     $mapContainerOptions = $this->getContainerOptions($params, ' . $mapContainerId . ');
-                    $mapContainerOptions['style'] = 'width: ' . $width . '; height: ' . $height . ';';
+                    // $mapContainerOptions['style'] = 'width: ' . $width . '; height: ' . $height . '; float: ' . $float_style . ';';
+                    $mapContainerOptions['style'] = 'width: ' . $width . '; height: ' . $height . '; ';
+                    $mapContainerOptions['class'] = $float_class;
+
                     $markerPopupCode = 'L.marker([' . $lat . ', ' . $long . ']).addTo(map_' . $mapContainerId . ').bindPopup(\'' . Text::_($markerTitle) . '\')';
                 if ($title_toggle == 0) {
                         $markerPopupCode .= '.openPopup()';
@@ -132,6 +144,7 @@ class PlgSystemLeafletMap extends CMSPlugin
                 if ($toggle_css == 1) {
                     JFactory::getDocument()->addStyleSheet('/plugins/system/leafletmap/css/leaflet_flag.css');
                     }
+               
             // Generate the map HTML with the specified container options and initialization script
                 $html = '<div id="' . $mapContainerId . '" ' . $this->renderHtmlAttributes($mapContainerOptions) . '></div>';
                 $html .= '<script>
