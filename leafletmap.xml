@@ -1,42 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="4" type="plugin" group="system" method="upgrade">
+<extension version="5.0" type="plugin" group="system" method="upgrade">
     <name>System - Leaflet Map</name>
     <author>Grant Amaral</author>
     <creationDate>2023-07-10</creationDate>
-    <copyright>Copyright (C) 2023 Grant Amaral</copyright>
+    <copyright>© 2023 Grant Amaral</copyright>
     <license>GPLv2</license>
     <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
     <authorEmail>grant@grantamaral.com</authorEmail>
     <authorUrl>https://lrio.com/</authorUrl>
-    <version>1.0.5</version>
+    <version>1.0.8</version>
+    <changelogurl>https://github.com/grantiago/leafletmap_plugin/blob/main/changelog.md</changelogurl>
 
+    <metadata>
+        <media folder="plg_system_leafletmap" />
+    </metadata>
     <files>
         <filename plugin="leafletmap">leafletmap.php</filename>
         <filename>index.html</filename>
         <filename>changelog.md</filename>
         <folder>language</folder>
+        <folder>includes</folder>
+    </files>
+    
+    <media destination="plg_system_leafletmap" folder="media">
         <folder>css</folder>
         <folder>js</folder>
+        <folder>images</folder>
+    </media>
 
-    </files>
     <languages folder="language">
-        <language tag="en-GB">en-GB/plg_system_leafletmap.ini</language>
-        <language tag="en-GB">en-GB/plg_system_leafletmap.sys.ini</language>
-        <language tag="es-ES">es-ES/plg_system_leafletmap.sys.ini</language>
-        <language tag="es-ES">es-ES/plg_system_leafletmap.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_leafletmap.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_leafletmap.sys.ini</language>
+        <language tag="es-ES">es-ES/es-ES.plg_system_leafletmap.ini</language>
+        <language tag="es-ES">es-ES/es-ES.plg_system_leafletmap.sys.ini</language>
     </languages>
+
+    
+
+    <updateservers> 
+        <server type="extension" priority="1" name="Leaflet Map Plugin Repository">https://raw.githubusercontent.com/grantiago/leafletmap_plugin/main/update.xml</server>
+    </updateservers>
+
     <config>
         <fields name="params">
             <fieldset name="settings" label="Settings">
                 <field
-                    name="latitude"
+                    name="show_default_marker"
+                    type="radio"
+                    label="PLG_SYSTEM_LEAFLETMAP_SHOW_DEFAULT_MARKER"
+                    description="PLG_SYSTEM_LEAFLETMAP_SHOW_DEFAULT_MARKER_DESC"
+                    default="1">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field
+                    name="lat"
                     type="text"
                     default="43.66"
                     label="PLG_SYSTEM_LEAFLETMAP_LATITUDE"
                     description="PLG_SYSTEM_LEAFLETMAP_LATITUDE_DESC"
                 />
                 <field
-                    name="longitude"
+                    name="lng"
                     type="text"
                     default="-116.23"
                     label="PLG_SYSTEM_LEAFLETMAP_LONGITUDE"
@@ -45,69 +70,98 @@
                 <field
                     name="zoom"
                     type="int"
-                    default="13"
+                    default="14"
                     label="PLG_SYSTEM_LEAFLETMAP_ZOOM"
                     description="PLG_SYSTEM_LEAFLETMAP_ZOOM_DESC"
                 />
                 <field
                     name="marker_title"
                     type="text"
-                    default="PLG_SYSTEM_LEAFLETMAP_MARKER_DEFAULT"
+                    default="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE_DEFAULT"
                     label="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE"
                     description="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE_DESC"
+                    filter="safehtml"
                 />
-                <field name="marker_color" type="list" label="PLG_SYSTEM_LEAFLETMAP_MARKER_COLOR">
+                <field
+                    name="marker_content"
+                    type="textarea"
+                    default=""
+                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_CONTENT"
+                    description="PLG_SYSTEM_LEAFLETMAP_MARKER_CONTENT_DESC"
+                    filter="safehtml"
+                />
+                <field name="marker_icon"
+                    type="list"
+                    default="blue-marker.png"
+                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_COLOR"
+                    description="Select a predefined marker color or choose custom.">
                     <option value="">Please Select</option>
-                    <option value="option1">Custom Icon URL</option>
-                    <option value="option2">Default - blue</option>
-                    <option value="option2">PLG_SYSTEM_LEAFLETMAP_MARKER_RED</option>
+                    <option value="custom">Custom Icon URL</option>
+                    <option value="blue-marker.png">Blue Marker</option>
+                    <option value="red-marker.png">PLG_SYSTEM_LEAFLETMAP_MARKER_RED</option>
+                    <option value="green-marker.png">Green Marker</option>
+                    <option value="gold-marker.png">Gold Marker</option>
                 </field>
-                <field name="marker_custom" 
-                    type="text" 
-                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_CUSTOM" 
-                    description="This field depends on the first field value." 
-                    showon="marker_color:option1" 
+
+                <field name="marker_custom"
+                    type="text"
+                    label="PLG_SYSTEM_LEAFLETMAP_MARKER_CUSTOM"
+                    description="Provide full URL or relative path for custom marker image."
+                    showon="marker_icon:custom"
                 />
                 <field name="basemap"
                     type="radio"
-                    default="0"
-                    description="Which base map?"
+                    default="osm"
+                    description="esri topo is USA only. Open topo max zoom 14."
                     label="PLG_SYSTEM_LEAFLETMAP_BASEMAP_LABEL">
-                    <option value="0">Open Street Map</option>
-                    ; esri topo is us only
-                    <option value="1">ESRI Satellite</option>
-                    <option value="2">ESRI Topo</option>
-                    <option value="3">Open Topo</option>
-
+                    <option value="osm">Open Street Map</option>
+                    <option value="esriSat">ESRI Satellite</option>
+                    <option value="esriTopo">ESRI Topo</option>
+                    <option value="openTopo">Open Topo</option>
                 </field>
                 <field name="title_toggle"
                     type="radio"
                     default="1"
-                    description="title open on load"
-                    label="PLG_SYSTEM_LEAFLETMAP_TITLE_TOGGLE_ON_LOAD">
+                    description="Open popup content automatically when map loads"
+                    label="Open Popup on Load">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field name="div_width"
+                <field name="width"
                     type="text"
                     default="100%"
                     label="PLG_SYSTEM_LEAFLETMAP_DIV_WIDTH"
                     description="PLG_SYSTEM_LEAFLETMAP_DIV_WIDTH_DESC"
                 />
-                <field name="div_height"
+                <field name="height"
                     type="text"
                     default="150px"
                     label="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT"
-                    description="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT_DESC"
-                />
-                <field name="kml_toggle" type="radio" default="0" disabled="disabled" label="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE" description="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE_DESC">
+                    description="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT_DESC">
+                </field>
+                <field name="align"
+                    type="list"
+                    default="align-center"
+                    label="PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN"
+                    description="PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_DESC">
+                    <option value="">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_DEFAULT</option>
+                    <option value="align-left">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_LEFT</option>
+                    <option value="align-right">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_RIGHT</option>
+                </field>
+                <field 
+                    name="kml_toggle"
+                    type="radio"
+                    default="0"
+                    disabled="disabled"
+                    label="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE"
+                    description="PLG_SYSTEM_LEAFLETMAP_KML_ENABLE_DESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                     <option value="2">en the future</option>
                 </field>
                 <field name="zoom_wheel" type="radio" default="1" label="PLG_SYSTEM_LEAFLETMAP_DISABLE_ZOOM_WHEEL" description="zoom_wheel_DESC">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
+                    <option value="0">JYES</option>
+                    <option value="1">JNO</option>
                 </field>
                 <field
                     name="kml"
@@ -138,7 +192,4 @@
             </fieldset>
         </fields>
     </config>
-    <updateservers> 
-        <server type="extension" priority="1" name="Leaflet Map Plugin Repository">https://raw.githubusercontent.com/grantiago/leafletmap_plugin/main/update.xml</server>
-    </updateservers>
 </extension>

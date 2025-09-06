@@ -1,0 +1,77 @@
+
+/* this would have to go in the admin template. 
+ * for the indented field in xml -> settings
+ * I believe 
+ .indented-field {
+ 		margin-left: 20px;
+ 	}
+ */
+.map-container {
+	/* padding: 14px; */
+	width: 96%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.leafletmap-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px;
+	align-items: start;
+	padding: 16px;
+}
+
+.align-left {
+	justify-self: start;
+}
+
+.align-right {
+	justify-self: end;
+}
+
+.align-center {
+	justify-self: center;
+}
+
+div[id^="map"] {
+	z-index: 2;
+	width: 100%;
+}
+
+.leaflet-pseudo-fullscreen {
+	z-index: 300 !important;
+}
+
+.map-container.hide-flag .leaflet-attribution-flag {
+	display: none !important;
+}
+
+.leaf-float-left {
+	float: left;
+	/* margin-left: 10px; */
+	margin-right: 10px;
+}
+.leaf-float-right {
+	float: right;
+	margin-left: 10px;
+}
+.leaf-float-center {
+	margin: 0 auto;
+}
+
+div[id^="map"] {
+	/* position: relative; */
+	z-index: 2;
+	/* margin: 10px auto; */
+	/* margin: 0 auto; */
+	/* padding: 10px; */
+}
+
+@media (max-width: 768px) {
+	div[id^="map"] {
+		height: inherit;
+		/* width: 100%; */
+		width: 100% !important;
+	}
+}
+
