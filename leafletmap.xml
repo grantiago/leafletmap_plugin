@@ -78,6 +78,7 @@
                     name="marker_title"
                     type="text"
                     default="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE_DEFAULT"
+                    translate_default="true"
                     label="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE"
                     description="PLG_SYSTEM_LEAFLETMAP_MARKER_TITLE_DESC"
                     filter="safehtml"
