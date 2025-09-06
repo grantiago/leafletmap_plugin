@@ -21,9 +21,9 @@
       <downloadsource type="full" format="zip">
         https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.8/plg_leaflet_map_1.0.8.zip
       </downloadsource>
-      <!-- Optional checksum (add after you upload the release asset):
-      <sha256>PUT_SHA256_OF_ZIP_HERE</sha256>
-      -->
+
+      <sha256>330f670602ecb809dbfb1974a9422486a1c25ea9fa70641d19625eefb74ef328</sha256>
+
     </downloads>
 
     <tags>
