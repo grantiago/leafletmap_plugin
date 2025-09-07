@@ -6,10 +6,10 @@
     <copyright>© 2023 Grant Amaral</copyright>
     <license>GPLv2</license>
     <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
-    <authorEmail>grant@grantamaral.com</authorEmail>
+    <authorEmail>grant@lrio.com</authorEmail>
     <authorUrl>https://lrio.com/</authorUrl>
     <version>1.0.8</version>
-    <changelogurl>https://github.com/grantiago/leafletmap_plugin/blob/main/changelog.md</changelogurl>
+    <changelogurl>https://github.com/grantiago/leafletmap_plugin/blob/main/changelog.xml</changelogurl>
 
     <metadata>
         <media folder="plg_system_leafletmap" />
