@@ -1,0 +1,174 @@
+<changelogs>
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.8</version>
+    <date>2025-09-06</date>
+    <security></security>
+    <fix></fix>
+    <language></language>
+    <addition>
+      <item>Default marker toggle</item>
+      <item>Change log URL in XML</item>
+    </addition>
+    <change>
+      <item>Marker icons consolidated in images/markers (linked in leaflet.css)</item>
+    </change>
+    <remove>
+      <item>Settings option for multiple default markers</item>
+    </remove>
+    <note></note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.7</version>
+    <date>2025-09-06</date>
+    <security></security>
+    <fix>
+      <item>Asset paths corrected to load via Web Asset Manager</item>
+      <item>Resolved heredoc PHP parsing issues (<?= ... ?> replaced with variables)</item>
+      <item>Ensured marker shadow path and fitBounds with multiple markers</item>
+    </fix>
+    <language></language>
+    <addition>
+      <item>Per-marker icon support via shortcode</item>
+      <item>Robust icon URL resolver (absolute, relative, data URIs, filenames)</item>
+    </addition>
+    <change>
+      <item>Standardized media layout (stock vs custom marker directories)</item>
+    </change>
+    <remove></remove>
+    <note>Minor cleanups included</note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.6</version>
+    <date>2025-04-27</date>
+    <security>
+      <item>Tightened CSP headers while allowing tiles, scripts, popups</item>
+    </security>
+    <fix>
+      <item>Corrected Leaflet Omnivore plugin asset loading (local copy, no CDN)</item>
+    </fix>
+    <language></language>
+    <addition>
+      <item>Marker_content parameter for rich HTML popups</item>
+      <item>Separated marker title (tooltip) vs popup (click)</item>
+      <item>Reusable loadKml() and loadGeoJson()</item>
+      <item>Automatic fitBounds()</item>
+      <item>Per-map, self-contained LayerControl</item>
+    </addition>
+    <change>
+      <item>Improved JavaScript: safe json_encode() for popup content</item>
+      <item>Modularized JS injection (only once, even with multiple maps)</item>
+    </change>
+    <remove></remove>
+    <note>Clean, modular JS structure with shared color sequencing</note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.5</version>
+    <date>2025-04</date>
+    <fix>
+      <item>Checksum in Joomla update XML</item>
+      <item>Fixed map height not passing</item>
+      <item>Removed var_dump debug code</item>
+    </fix>
+    <addition>
+      <item>Mobile CSS improvements</item>
+      <item>Custom marker support</item>
+      <item>Two-finger scroll (potential replacement for disabling scroll_wheel zoom)</item>
+      <item>License header in geojson.php (for JED)</item>
+    </addition>
+    <change>
+      <item>Moved geojson.php into ./includes</item>
+      <item>CSS toggle for flag</item>
+    </change>
+    <remove></remove>
+    <note>General Joomla update refinements</note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.4</version>
+    <date>2023-07-18</date>
+    <fix>
+      <item>Joomla update XML corrected (&lt;server type="plugin"&gt; → &lt;server type="extension"&gt;)</item>
+      <item>Fixed default basemap</item>
+    </fix>
+    <addition>
+      <item>GeoJSON option with fitBounds</item>
+    </addition>
+    <change>
+      <item>Skipped numbering from 0.0.3 to 1.0.4</item>
+      <item>Set GitHub release tagging system</item>
+    </change>
+    <remove></remove>
+    <note></note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>0.0.3</version>
+    <date></date>
+    <fix></fix>
+    <addition>
+      <item>Full screen plugin JS</item>
+      <item>Joomla update system</item>
+      <item>Zoom wheel toggle</item>
+      <item>KML layer</item>
+      <item>Omnivore plugin JS + CSS</item>
+      <item>fitBounds on KML layer</item>
+      <item>Toggle: open marker title on load</item>
+      <item>ESRI satellite basemap</item>
+    </addition>
+    <change>
+      <item>Renamed container from leaflet-map → map (removed str_replace instances)</item>
+    </change>
+    <remove></remove>
+    <note></note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>0.0.2</version>
+    <date></date>
+    <fix></fix>
+    <addition>
+      <item>Full screen plugin (JS + CSS)</item>
+      <item>Language files auto-installed under admin/language</item>
+      <item>Basemap selection field in XML (not yet wired to PHP)</item>
+    </addition>
+    <change>
+      <item>All CSS/JS moved into plugin dir</item>
+      <item>Leaflet images relocated under css/images</item>
+      <item>Language file names standardized to plg_system_xxx</item>
+      <item>Fieldset groups added for description and settings</item>
+      <item>Added z-index in CSS to keep menu in front of map</item>
+    </change>
+    <remove></remove>
+    <note></note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>0.0.1</version>
+    <date></date>
+    <fix></fix>
+    <language></language>
+    <addition></addition>
+    <change></change>
+    <remove></remove>
+    <note>Initial release</note>
+  </changelog>
+</changelogs>
