@@ -60,6 +60,8 @@
 
     map.attributionControl.setPrefix(false); // remove default Leaflet library attribution
 
+    map.addControl(new L.Control.FullScreen());
+
     map._baseMaps = baseMaps;
     map._customLayerGroups = {};
     map._customLayerControl = L.control.layers(baseMaps, {}, {
