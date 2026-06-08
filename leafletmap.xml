@@ -182,15 +182,6 @@
                     label="PLG_SYSTEM_LEAFLETMAP_GEOJSON_URL"
                     description="PLG_SYSTEM_LEAFLETMAP_GEOJSON_DESC"
                 />
-                <field
-                    name="toggle_css"
-                    type="radio"
-                    label="PLG_SYSTEM_LEAFLETMAP_CSS_TOGGLE"
-                    description="Enable or disable the CSS rule."
-                    default="0">
-                    <option value="1">PLG_SYSTEM_LEAFLETMAP_CSS_TOGGLE_HIDE</option>
-                    <option value="0">PLG_SYSTEM_LEAFLETMAP_CSS_TOGGLE_SHOW</option>
-                </field>
             </fieldset>
         </fields>
     </config>

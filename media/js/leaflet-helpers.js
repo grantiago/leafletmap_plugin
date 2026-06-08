@@ -55,8 +55,10 @@
       scrollWheelZoom: !!zoomWheel,
       dragging: !L.Browser.mobile,
       tap: !L.Browser.mobile,
-      layers: [osm]
+      layers: [osm],
     }).setView([lat, lng], zoom);
+
+    map.attributionControl.setPrefix(false); // remove default Leaflet library attribution
 
     map._baseMaps = baseMaps;
     map._customLayerGroups = {};

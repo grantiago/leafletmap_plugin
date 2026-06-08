@@ -70,7 +70,6 @@ class PlgSystemLeafletMap extends CMSPlugin {
             'kml_toggle'     => (bool) $this->params->get('kml_toggle', 0),
             'title_toggle'   => (bool) $this->params->get('title_toggle', 0),
             'zoom_wheel'     => (bool) $this->params->get('zoom_wheel', 1),
-            'toggle_css'     => (bool) $this->params->get('toggle_css', 0),
             'marker_title'   => (string) $this->params->get('marker_title', ''),
             'marker_content' => (string) $this->params->get('marker_content', ''),
             'marker_icon'    => (string) $this->params->get('marker_icon', ''),
@@ -98,7 +97,6 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $kml_toggle     = (bool)  $config['kml_toggle'];
         $title_toggle   = (bool)  $config['title_toggle'];
         $zoom_wheel     = (bool)  $config['zoom_wheel'];
-        $toggle_css     = (bool)  $config['toggle_css'];
         $markerTitle    = trim((string) $config['marker_title']);
         $markerContent  = trim((string) $config['marker_content']);
         $marker_icon    = trim((string) $config['marker_icon']);
@@ -154,12 +152,6 @@ class PlgSystemLeafletMap extends CMSPlugin {
                 // Bare filename like "blue-marker.png"
                 $marker_icon = Uri::root() . 'media/plg_system_leafletmap/images/markers/' . ltrim($marker_icon, '/');
             }
-        }
-
-
-        // Hide the little attribution flag if requested
-        if ($toggle_css) {
-            Factory::getDocument()->addStyleDeclaration('.leaflet-attribution-flag{display:none !important;}');
         }
 
         // Escape popup content for JS
