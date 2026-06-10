@@ -21,10 +21,10 @@
 
   function updateLayerControl(map) {
     const baseMaps = {
-      "OSM": L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 }),
+      "OpenStreetMap": L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors" }),
       "Satellite": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { attribution: "&copy; Esri" }),
       "Topo": L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", { attribution: "&copy; Esri" }),
-      "Open Topo": L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "@OpenTopoMap" })
+      "OpenTopoMap": L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "&copy; <a href=\"https://opentopomap.org/\">OpenTopoMap</a>" })
     };
 
     if (!map._customLayerGroups) {
@@ -44,19 +44,23 @@
   window.initLeafletMap = function (containerId, lat, lng, zoom, zoomWheel) {
     const container = document.getElementById(containerId);
 
-    const osm      = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19 });
+    const osm      = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors" });
     const esriSat  = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", { attribution: "&copy; Esri" });
     const esriTopo = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}", { attribution: "&copy; Esri" });
-    const openTopo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "@OpenTopoMap" });
+    const openTopo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", { maxZoom: 17, attribution: "&copy; <a href=\"https://opentopomap.org/\">OpenTopoMap</a>" });
 
-    const baseMaps = { "OSM": osm, "Satellite": esriSat, "Topo": esriTopo, "Open Topo": openTopo };
+    const baseMaps = { "OpenStreetMap": osm, "Satellite": esriSat, "Topo": esriTopo, "OpenTopoMap": openTopo };
 
     const map = L.map(container, {
       scrollWheelZoom: !!zoomWheel,
       dragging: !L.Browser.mobile,
       tap: !L.Browser.mobile,
-      layers: [osm]
+      layers: [osm],
     }).setView([lat, lng], zoom);
+
+    map.attributionControl.setPrefix(false); // remove default Leaflet library attribution
+
+    map.addControl(new L.Control.FullScreen());
 
     map._baseMaps = baseMaps;
     map._customLayerGroups = {};
