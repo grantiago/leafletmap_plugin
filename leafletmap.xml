@@ -8,7 +8,7 @@
     <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
     <authorEmail>grant@lrio.com</authorEmail>
     <authorUrl>https://lrio.com/</authorUrl>
-    <version>1.0.9</version>
+    <version>1.0.10</version>
     <changelogurl>https://github.com/grantiago/leafletmap_plugin/blob/main/changelog.xml</changelogurl>
 
     <metadata>

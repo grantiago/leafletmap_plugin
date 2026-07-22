@@ -8,7 +8,7 @@ The Leaflet JS and css are loaded once in the header when required. The map init
 
 ## Current version
 
-### 1.0.9 — 2026-07-22
+### 1.0.10 — 2026-07-22
 
 This release restores the fullscreen control, removes the obsolete
 `toggle_css` option, and corrects basemap names and provider attributions.

@@ -3,14 +3,13 @@
   <update>
     <name>Leaflet Map Plugin</name>
     <description>
-      1.0.9: Removed the obsolete toggle_css option and Leaflet attribution prefix, corrected basemap names and attributions, and restored the fullscreen control.
+      1.0.10: Fixed localized marker-title defaults and decoded HTML entities in marker popup content so encoded HTML such as line breaks renders correctly.
     </description>
-
     <element>leafletmap</element>
     <type>plugin</type>
     <folder>system</folder>
 
-    <version>1.0.9</version>
+    <version>1.0.10</version>
 
     <infourl title="Leaflet Map Plugin">
       https://github.com/grantiago/leafletmap_plugin#readme
@@ -18,11 +17,11 @@
 
     <downloads>
       <downloadurl type="full" format="zip">
-        https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.9/plg_leaflet_map_1.0.9.zip
+        https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.10/plg_leaflet_map_1.0.10.zip
       </downloadurl>
 
       <downloadsource type="full" format="zip">
-        https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.9/plg_leaflet_map_1.0.9.zip
+        https://github.com/grantiago/leafletmap_plugin/releases/download/1.0.10/plg_leaflet_map_1.0.10.zip
       </downloadsource>
 
       <sha256>64d5755bda1cd8ba835f1be23b374537ffc9ea556a5bfceec6e9438445949fdd</sha256>

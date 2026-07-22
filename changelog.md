@@ -2,7 +2,13 @@
 
 ## Current version
 
-### 1.0.9 — 2026-07-22
+## [1.0.10] — 2026-07-22
+
+- Fixed the default marker-title setting displaying an untranslated language constant.
+- Added decoding for encoded HTML entities in marker popup content.
+- Fixed encoded `<br>` tags so popup line breaks render correctly.
+
+## 1.0.9 — 2026-07-22
 
 - Restores the fullscreen control
 - Removes the obsolete `toggle_css` option

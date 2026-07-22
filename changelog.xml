@@ -1,4 +1,50 @@
 <changelogs>
+ <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.10</version>
+    <date>2026-07-22</date>
+    <security></security>
+
+    <fix>
+      <item>Fixed the default marker title displaying an untranslated language constant.</item>
+      <item>Fixed encoded HTML in marker popup content.</item>
+      <item>Fixed encoded line break tags so popup line breaks render correctly.</item>
+    </fix>
+
+    <language></language>
+    <addition></addition>
+    <change></change>
+    <remove></remove>
+    <note></note>
+  </changelog>
+
+  <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
+    <version>1.0.9</version>
+    <date>2026-07-22</date>
+    <security></security>
+
+    <fix>
+      <item>Restored initialization of the fullscreen control.</item>
+      <item>Corrected basemap names and provider attributions.</item>
+    </fix>
+
+    <language></language>
+    <addition></addition>
+
+    <change>
+      <item>Removed the Leaflet attribution prefix while retaining provider attribution.</item>
+    </change>
+
+    <remove>
+      <item>Removed the obsolete toggle_css option.</item>
+    </remove>
+
+    <note></note>
+  </changelog>
+
   <changelog>
     <element>plg_system_leafletmap</element>
     <type>plugin</type>

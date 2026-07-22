@@ -2,7 +2,7 @@
 
 /**
  * @plugin   Leaflet Map
- * @version  1.0.9
+ * @version  1.0.10
  * @author   Grant Amaral <grant@lrio.com>
  * @link     https://lrio.com
  * @license  GPL-2.0-or-later
