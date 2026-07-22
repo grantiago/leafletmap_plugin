@@ -6,6 +6,13 @@ The LeafletMap system plugin supports <strong>multiple maps on one page in multi
 
 The Leaflet JS and css are loaded once in the header when required. The map initialization script is loaded in the content. This allows for more than one map, in one or more articles, on one page. A blog Layout on the home page would be an example. A category list would be another use.
 
+## Current version
+
+### 1.0.9 — 2026-07-22
+
+This release restores the fullscreen control, removes the obsolete
+`toggle_css` option, and corrects basemap names and provider attributions.
+
 ## Usage
 
 - `{leafletmap lat="44.66" lng="-116.23" marker_title="grant house"}` <em>overrides in the hook</em>
@@ -15,15 +22,18 @@ The Leaflet JS and css are loaded once in the header when required. The map init
 
 - Supports multiple maps on one page in multiple articles.
 - Override defaults in plugin hook
-- multi language: en-GB, es_ES
-- select basemaps: osm, opentopo, ESRI Sat, ESRI Topo
-- display kml files
-- display geojson files
-- toggle zoom with scroll wheel
-- toggle title open/close on load
-- override all settings in the hook
-- set the map height and width
-- responisive
+- Multi language: en-GB, es_ES
+- Select basemaps: osm, opentopo, ESRI Sat, ESRI Topo
+- Display kml files
+- Display geojson files
+- Toggle zoom with scroll wheel
+- Toggle title open/close on load
+- Override all settings in the hook
+- Set the map height and width
+- Responsive
+- Fullscreen map control
+- Correct provider attribution for each basemap
+- Leaflet attribution prefix removed to reduce map clutter
 
 ## Settings
 

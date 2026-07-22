@@ -1,5 +1,13 @@
 # change log
 
+## Current version
+
+### 1.0.9 — 2026-07-22
+
+- Restores the fullscreen control
+- Removes the obsolete `toggle_css` option
+- Corrects basemap names and provider attributions.
+
 ## [1.0.8] — 2025-09-06
 
 - added default marker toggle

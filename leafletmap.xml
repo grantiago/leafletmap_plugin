@@ -8,7 +8,7 @@
     <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
     <authorEmail>grant@lrio.com</authorEmail>
     <authorUrl>https://lrio.com/</authorUrl>
-    <version>1.0.8</version>
+    <version>1.0.9</version>
     <changelogurl>https://github.com/grantiago/leafletmap_plugin/blob/main/changelog.xml</changelogurl>
 
     <metadata>
@@ -99,10 +99,10 @@
                     description="Select a predefined marker color or choose custom.">
                     <option value="">Please Select</option>
                     <option value="custom">Custom Icon URL</option>
-                    <option value="blue-marker.png">Blue Marker</option>
+                    <option value="blue-marker.png">PLG_SYSTEM_LEAFLETMAP_MARKER_BLUE</option>
                     <option value="red-marker.png">PLG_SYSTEM_LEAFLETMAP_MARKER_RED</option>
-                    <option value="green-marker.png">Green Marker</option>
-                    <option value="gold-marker.png">Gold Marker</option>
+                    <option value="green-marker.png">PLG_SYSTEM_LEAFLETMAP_MARKER_GREEN</option>
+                    <option value="gold-marker.png">PLG_SYSTEM_LEAFLETMAP_MARKER_GOLD</option>
                 </field>
 
                 <field name="marker_custom"
@@ -137,7 +137,7 @@
                 />
                 <field name="height"
                     type="text"
-                    default="150px"
+                    default="250px"
                     label="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT"
                     description="PLG_SYSTEM_LEAFLETMAP_DIV_HEIGHT_DESC">
                 </field>

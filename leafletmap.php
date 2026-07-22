@@ -175,7 +175,6 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $geoJsonUrlJs   = $this->escapeForJs($geojson);
         $markerTitleJs  = $this->escapeForJs($markerTitle);
         $markerIconJs   = $this->escapeForJs($marker_icon);
-        // add these two:
         $baseMarkerDirJs = $this->escapeForJs(\Joomla\CMS\Uri\Uri::root() . 'media/plg_system_leafletmap/images/markers/');
         $shadowUrlJs     = $this->escapeForJs(\Joomla\CMS\Uri\Uri::root() . 'media/plg_system_leafletmap/images/marker-shadow.png');
 
@@ -184,7 +183,6 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $hasKml            = ($kml !== '');
         $hasGeojson        = ($geojson !== '');
         $shouldAddDefault  = ($showDefault && !$hasShortcodeMarks && !$hasKml && !$hasGeojson);
-        // BEFORE the heredoc 1.0.8
         $shouldAddDefaultJs = $shouldAddDefault ? 'true' : 'false';
 
         // Ensure plugin-level icon is a full URL if it’s a filename
