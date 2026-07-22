@@ -2,7 +2,7 @@
 
 /**
  * @plugin   Leaflet Map
- * @version  1.0.7
+ * @version  1.0.9
  * @author   Grant Amaral <grant@lrio.com>
  * @link     https://lrio.com
  * @license  GPL-2.0-or-later
@@ -98,7 +98,21 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $title_toggle   = (bool)  $config['title_toggle'];
         $zoom_wheel     = (bool)  $config['zoom_wheel'];
         $markerTitle    = trim((string) $config['marker_title']);
-        $markerContent  = trim((string) $config['marker_content']);
+
+        $markerContent = trim((string) $config['marker_content']);
+
+        $markerContent = html_entity_decode(
+            $markerContent,
+            ENT_QUOTES | ENT_HTML5,
+            'UTF-8'
+        );
+
+        $markerContent = html_entity_decode(
+            $markerContent,
+            ENT_QUOTES | ENT_HTML5,
+            'UTF-8'
+        );
+
         $marker_icon    = trim((string) $config['marker_icon']);
         $marker_custom  = trim((string) $config['marker_custom']);
         $kml            = trim((string) $config['kml']);
