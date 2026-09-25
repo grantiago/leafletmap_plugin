@@ -74,7 +74,7 @@
     <security></security>
     <fix>
       <item>Asset paths corrected to load via Web Asset Manager</item>
-      <item>Resolved heredoc PHP parsing issues (<?= ... ?> replaced with variables)</item>
+      <item>Resolved heredoc PHP parsing issues (&lt;?= ... ?&gt; replaced with variables)</item>
       <item>Ensured marker shadow path and fitBounds with multiple markers</item>
     </fix>
     <language></language>
