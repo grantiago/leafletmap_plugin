@@ -2,6 +2,28 @@
  <changelog>
     <element>plg_system_leafletmap</element>
     <type>plugin</type>
+    <version>1.1.0</version>
+    <date>2026-11-03</date>
+    <security></security>
+    <fix></fix>
+    <language></language>
+
+    <addition>
+      <item>Added kml_label shortcode parameter to set the KML layer name in the layer control (default "KML Layer").</item>
+      <item>Added geojson_label shortcode parameter to set the GeoJSON layer name in the layer control (default "GeoJson Layer").</item>
+    </addition>
+
+    <change>
+      <item>Replaced the hard-coded "Route Layer" and "Schedule Layer" layer control labels.</item>
+    </change>
+
+    <remove></remove>
+    <note></note>
+  </changelog>
+
+ <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
     <version>1.0.10</version>
     <date>2026-07-22</date>
     <security></security>

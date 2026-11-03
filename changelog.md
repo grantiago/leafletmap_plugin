@@ -2,6 +2,12 @@
 
 ## Current version
 
+## [1.1.0] — 2026-11-03
+
+- Added `kml_label` shortcode parameter to set the KML layer name in the layer control (default "KML Layer").
+- Added `geojson_label` shortcode parameter to set the GeoJSON layer name in the layer control (default "GeoJson Layer").
+- Replaced the hard-coded "Route Layer" and "Schedule Layer" labels.
+
 ## [1.0.10] — 2026-07-22
 
 - Fixed the default marker-title setting displaying an untranslated language constant.

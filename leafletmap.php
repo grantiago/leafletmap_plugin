@@ -2,7 +2,7 @@
 
 /**
  * @plugin   Leaflet Map
- * @version  1.0.10
+ * @version  1.1.0
  * @author   Grant Amaral <grant@lrio.com>
  * @link     https://lrio.com
  * @license  GPL-2.0-or-later
@@ -77,6 +77,8 @@ class PlgSystemLeafletMap extends CMSPlugin {
             'basemap'        => (string) $this->params->get('basemap', ''),
             'kml'            => (string) $this->params->get('kml', ''),
             'geojson'        => (string) $this->params->get('geojson', ''),
+            'kml_label'      => 'KML Layer',
+            'geojson_label'  => 'GeoJson Layer',
             'width'          => (string) $this->params->get('width', '100%'),
             'height'         => (string) $this->params->get('height', '300px'),
             'align'          => (string) $this->params->get('align', 'align-center'),
@@ -187,6 +189,8 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $hasGeoJsonJs   = $geojson !== '' ? 'true' : 'false';
         $kmlUrlJs       = $this->escapeForJs($kml);
         $geoJsonUrlJs   = $this->escapeForJs($geojson);
+        $kmlLabelJs     = $this->escapeForJs(trim((string) $config['kml_label']));
+        $geoJsonLabelJs = $this->escapeForJs(trim((string) $config['geojson_label']));
         $markerTitleJs  = $this->escapeForJs($markerTitle);
         $markerIconJs   = $this->escapeForJs($marker_icon);
         $baseMarkerDirJs = $this->escapeForJs(\Joomla\CMS\Uri\Uri::root() . 'media/plg_system_leafletmap/images/markers/');
@@ -289,8 +293,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // KML/GeoJSON (external helpers)
-    if ({$hasKmlJs})     { loadKml(map, "{$kmlUrlJs}", "Route Layer"); }
-    if ({$hasGeoJsonJs}) { loadGeoJson(map, "{$geoJsonUrlJs}", "Schedule Layer"); }
+    if ({$hasKmlJs})     { loadKml(map, "{$kmlUrlJs}", "{$kmlLabelJs}"); }
+    if ({$hasGeoJsonJs}) { loadGeoJson(map, "{$geoJsonUrlJs}", "{$geoJsonLabelJs}"); }
 });
 </script>
 SCRIPT;
