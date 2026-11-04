@@ -8,15 +8,18 @@ The Leaflet JS and css are loaded once in the header when required. The map init
 
 ## Current version
 
-### 1.0.10 — 2026-07-22
+### 1.1.0 — 2026-11-03
 
-This release restores the fullscreen control, removes the obsolete
-`toggle_css` option, and corrects basemap names and provider attributions.
+Adds `kml_label` and `geojson_label` shortcode parameters to name the layers
+in the map layer control (defaults "KML Layer" and "GeoJson Layer"), replacing
+the hard-coded "Route Layer" and "Schedule Layer". Language files updated to
+1.1.0, with the new parameters added to the shortcode example.
 
 ## Usage
 
 - `{leafletmap lat="44.66" lng="-116.23" marker_title="grant house"}` <em>overrides in the hook</em>
 - `{leafletmap}` <em>defaults from the admin settings</em>
+- `{leafletmap geojson="/media/routes/river.geojson" geojson_label="SF Clearwater – Golden Canyon"}` <em>GeoJSON layer with a custom layer control label</em>
 
 ## Features
 

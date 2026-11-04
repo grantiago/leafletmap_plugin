@@ -15,6 +15,7 @@
 
     <change>
       <item>Replaced the hard-coded "Route Layer" and "Schedule Layer" layer control labels.</item>
+      <item>Updated language files (en-GB, es-ES) to 1.1.0 and added kml_label and geojson_label to the shortcode example.</item>
     </change>
 
     <remove></remove>
