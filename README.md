@@ -8,18 +8,20 @@ The Leaflet JS and css are loaded once in the header when required. The map init
 
 ## Current version
 
-### 1.1.0 — 2026-11-03
+### 1.2.0 — 2026-11-04
 
-Adds `kml_label` and `geojson_label` shortcode parameters to name the layers
-in the map layer control (defaults "KML Layer" and "GeoJson Layer"), replacing
-the hard-coded "Route Layer" and "Schedule Layer". Language files updated to
-1.1.0, with the new parameters added to the shortcode example.
+Adds `wrap-left` and `wrap-right` alignment so article text wraps around the
+map, fixes `align-left` / `align-center` / `align-right` (which had no effect
+in articles), and fixes the Spanish language files so the admin shows Spanish.
+For wrap, place the tag before the text that should wrap and use a px width.
+See [changelog.md](changelog.md) for details.
 
 ## Usage
 
 - `{leafletmap lat="44.66" lng="-116.23" marker_title="grant house"}` <em>overrides in the hook</em>
 - `{leafletmap}` <em>defaults from the admin settings</em>
 - `{leafletmap geojson="/media/routes/river.geojson" geojson_label="SF Clearwater – Golden Canyon"}` <em>GeoJSON layer with a custom layer control label</em>
+- `{leafletmap align="wrap-right" width="400px" height="300px" geojson="/media/routes/river.geojson"}` <em>map on the right, article text wraps on the left</em>
 
 ## Features
 
@@ -29,6 +31,7 @@ the hard-coded "Route Layer" and "Schedule Layer". Language files updated to
 - Select basemaps: osm, opentopo, ESRI Sat, ESRI Topo
 - Display kml files
 - Display geojson files
+- Align maps left, center or right, or wrap article text around them
 - Toggle zoom with scroll wheel
 - Toggle title open/close on load
 - Override all settings in the hook
@@ -51,7 +54,7 @@ the hard-coded "Route Layer" and "Schedule Layer". Language files updated to
 | `zoom`           | Initial zoom                        | Integer string, e.g. `"13"`                                                                                         | —                                                                     |
 | `width`          | Map width                           | `"100%"` or `"360px"`                                                                                               | Validated to px/%                                                     |
 | `height`         | Map height                          | `"360px"` or `"50%"`                                                                                                | Validated to px/%                                                     |
-| `align`          | Container alignment                 | `"align-left"` \| `"align-center"` \| `"align-right"` (e.g. `"align-center"`)                                       | Applied to container `class`                                          |
+| `align`          | Map alignment                       | `"align-left"` \| `"align-center"` \| `"align-right"` \| `"wrap-left"` \| `"wrap-right"` (e.g. `"wrap-right"`) | Wrap floats the map and text flows around it; use a px `width`         |
 | `title_toggle`   | Auto-open first popup               | `"1"` or `"0"`, e.g. `"1"`                                                                                          | Only if marker has content                                            |
 | `zoom_wheel`     | Mouse wheel zoom                    | `"1"` or `"0"`, e.g. `"0"`                                                                                          | —                                                                     |
 | `marker_title`   | Default marker title                | Text, e.g. `"My Spot"`                                                                                              | Used by fallback/default marker                                       |

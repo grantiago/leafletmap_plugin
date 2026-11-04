@@ -2,6 +2,16 @@
 
 ## Current version
 
+## [1.2.0] — 2026-11-04
+
+- Added `wrap-left` and `wrap-right` alignment: the map floats and article text wraps around it. Below 768px the map returns to full width.
+- Added a float clear at the end of the article text when a wrapped map is present, so the read-more link stays below the map.
+- Added Align Center, Wrap Left and Wrap Right to the backend alignment list (en-GB, es-ES).
+- Fixed `align-left`, `align-center` and `align-right` having no effect outside a grid layout.
+- Fixed Spanish language files failing to parse, which made the admin fall back to English.
+- Security: shortcode values can no longer break out of the map `<script>` block; layer labels are HTML-escaped; `map_container` accepts only `class`, `title`, `data-*` and `aria-*` attributes.
+- Removed the unused `includes/geojson.php`, which was web-accessible and queried a hard-coded database.
+
 ## [1.1.0] — 2026-11-03
 
 - Added `kml_label` shortcode parameter to set the KML layer name in the layer control (default "KML Layer").

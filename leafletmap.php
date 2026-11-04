@@ -2,7 +2,7 @@
 
 /**
  * @plugin   Leaflet Map
- * @version  1.1.0
+ * @version  1.2.0
  * @author   Grant Amaral <grant@lrio.com>
  * @link     https://lrio.com
  * @license  GPL-2.0-or-later
@@ -33,6 +33,11 @@ class PlgSystemLeafletMap extends CMSPlugin {
 
         // Replace each {leafletmap ...} tag
         $article->text = preg_replace_callback('/{leafletmap(.*?)}/is', [$this, 'replaceMapTag'], $article->text);
+        // Wrapped maps: clear the float at the end of the article text so
+        // the read-more link and the next article start below the map
+        if (strpos($article->text, 'map-container-wrap-') !== false) {
+            $article->text .= '<div style="clear:both"></div>';
+        }
     }
 
     private function loadAssets(): void {
@@ -146,7 +151,7 @@ class PlgSystemLeafletMap extends CMSPlugin {
         }
 
         // Validate alignment
-        $validAligns = ['align-left', 'align-center', 'align-right'];
+        $validAligns = ['align-left', 'align-center', 'align-right', 'wrap-left', 'wrap-right'];
         if (!in_array($align, $validAligns, true)) {
             $align = 'align-center';
         }
@@ -180,8 +185,7 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $mapContainerOptions['class'] = $align;
 
         // Build HTML
-        $html  = '<div class="map-container"><div id="' . $mapContainerId . '" ' . $this->renderHtmlAttributes($mapContainerOptions) . '></div></div>';
-
+        $html  = '<div class="map-container map-container-' . $align . '"><div id="' . $mapContainerId . '" ' . $this->renderHtmlAttributes($mapContainerOptions) . '></div></div>';
         // Build JS
         $markersJson    = $this->markersToJSON($markers);
         $titleToggleJs  = $title_toggle ? 'true' : 'false';
@@ -189,8 +193,8 @@ class PlgSystemLeafletMap extends CMSPlugin {
         $hasGeoJsonJs   = $geojson !== '' ? 'true' : 'false';
         $kmlUrlJs       = $this->escapeForJs($kml);
         $geoJsonUrlJs   = $this->escapeForJs($geojson);
-        $kmlLabelJs     = $this->escapeForJs(trim((string) $config['kml_label']));
-        $geoJsonLabelJs = $this->escapeForJs(trim((string) $config['geojson_label']));
+        $kmlLabelJs     = $this->escapeForJs(htmlspecialchars(html_entity_decode(trim((string) $config['kml_label']), ENT_QUOTES | ENT_HTML5, 'UTF-8'), ENT_QUOTES, 'UTF-8'));
+        $geoJsonLabelJs = $this->escapeForJs(htmlspecialchars(html_entity_decode(trim((string) $config['geojson_label']), ENT_QUOTES | ENT_HTML5, 'UTF-8'), ENT_QUOTES, 'UTF-8'));
         $markerTitleJs  = $this->escapeForJs($markerTitle);
         $markerIconJs   = $this->escapeForJs($marker_icon);
         $baseMarkerDirJs = $this->escapeForJs(\Joomla\CMS\Uri\Uri::root() . 'media/plg_system_leafletmap/images/markers/');
@@ -308,7 +312,10 @@ SCRIPT;
         if (isset($params[$type . '_container'])) {
             $containerParams = $this->parseParams($params[$type . '_container']);
             foreach ($containerParams as $key => $value) {
-                $options[$key] = $value;
+                // Allow only safe attributes (no on* event handlers)
+                if ($key === 'class' || $key === 'title' || str_starts_with($key, 'data-') || str_starts_with($key, 'aria-')) {
+                    $options[$key] = $value;
+                }
             }
         }
         return $options;
@@ -365,11 +372,13 @@ SCRIPT;
                 'icon'    => (string) ($m['icon'] ?? '')
             ];
         }
-        return json_encode($processed, JSON_UNESCAPED_SLASHES);
+        return json_encode($processed, JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP);
     }
 
     private function escapeForJs(string $s): string {
         $s = str_replace(["\r\n", "\r", "\n"], ' ', $s);
-        return str_replace(['\\', '"'], ['\\\\', '\\"'], $s);
+        $s = str_replace(['\\', '"'], ['\\\\', '\\"'], $s);
+        // Prevent </script> breakout: escape < and > inside JS strings
+        return str_replace(['<', '>'], ['\\x3C', '\\x3E'], $s);
     }
 }

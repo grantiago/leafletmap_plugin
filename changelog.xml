@@ -2,6 +2,37 @@
  <changelog>
     <element>plg_system_leafletmap</element>
     <type>plugin</type>
+    <version>1.2.0</version>
+    <date>2026-11-04</date>
+
+    <security>
+      <item>Escaped &lt; and &gt; in all values written into the map script so shortcode parameters cannot close the script block.</item>
+      <item>HTML-escaped kml_label and geojson_label, which the layer control renders as HTML.</item>
+      <item>map_container now accepts only class, title, data-* and aria-* attributes (no event handlers).</item>
+      <item>Removed the unused includes/geojson.php, which was web-accessible and queried a hard-coded database.</item>
+    </security>
+
+    <fix>
+      <item>Fixed align-left, align-center and align-right having no effect outside a grid layout; alignment now uses auto margins.</item>
+      <item>Fixed Spanish (es-ES) language files failing to parse because of a line break in the description, which made the admin fall back to English.</item>
+    </fix>
+
+    <language></language>
+
+    <addition>
+      <item>Added wrap-left and wrap-right alignment: the map floats and article text wraps around it. Below 768px the map returns to full width.</item>
+      <item>Added the float clear at the end of the article text when a wrapped map is present, so the read-more link and the next blog item start below the map.</item>
+      <item>Added Align Center, Wrap Left and Wrap Right to the backend alignment list (en-GB, es-ES).</item>
+    </addition>
+
+    <change></change>
+    <remove></remove>
+    <note></note>
+  </changelog>
+
+ <changelog>
+    <element>plg_system_leafletmap</element>
+    <type>plugin</type>
     <version>1.1.0</version>
     <date>2026-11-03</date>
     <security></security>

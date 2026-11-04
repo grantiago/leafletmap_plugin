@@ -8,7 +8,7 @@
     <description>PLG_SYSTEM_LEAFLETMAP_DESCRIPTION_DESC</description>
     <authorEmail>grant@lrio.com</authorEmail>
     <authorUrl>https://lrio.com/</authorUrl>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
     <changelogurl>https://github.com/grantiago/leafletmap_plugin/blob/main/changelog.xml</changelogurl>
 
     <metadata>
@@ -20,7 +20,6 @@
         <filename>changelog.md</filename>
         <filename>changelog.xml</filename>
         <folder>language</folder>
-        <folder>includes</folder>
     </files>
     
     <media destination="plg_system_leafletmap" folder="media">
@@ -148,7 +147,10 @@
                     description="PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_DESC">
                     <option value="">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_DEFAULT</option>
                     <option value="align-left">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_LEFT</option>
+                    <option value="align-center">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_CENTER</option>
                     <option value="align-right">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_RIGHT</option>
+                    <option value="wrap-left">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_WRAP_LEFT</option>
+                    <option value="wrap-right">PLG_SYSTEM_LEAFLETMAP_DIV_ALIGN_WRAP_RIGHT</option>
                 </field>
                 <field 
                     name="kml_toggle"

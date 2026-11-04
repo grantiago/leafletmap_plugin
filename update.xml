@@ -3,13 +3,13 @@
   <update>
     <name>Leaflet Map Plugin</name>
     <description>
-      1.1.0: Added kml_label and geojson_label shortcode parameters to set the layer names in the map layer control. Defaults are "KML Layer" and "GeoJson Layer".
+      1.2.0: Added wrap-left and wrap-right map alignment with text wrapping. Fixed left/center/right alignment, which had no effect in articles. Fixed Spanish language files that failed to load. Security hardening of shortcode parameters; removed unused includes/geojson.php.
     </description>
     <element>leafletmap</element>
     <type>plugin</type>
     <folder>system</folder>
 
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 
     <infourl title="Leaflet Map Plugin">
       https://github.com/grantiago/leafletmap_plugin#readme
@@ -17,14 +17,14 @@
 
     <downloads>
       <downloadurl type="full" format="zip">
-        https://github.com/grantiago/leafletmap_plugin/releases/download/1.1.0/plg_leaflet_map_1.1.0.zip
+        https://github.com/grantiago/leafletmap_plugin/releases/download/1.2.0/plg_leaflet_map_1.2.0.zip
       </downloadurl>
 
       <downloadsource type="full" format="zip">
-        https://github.com/grantiago/leafletmap_plugin/releases/download/1.1.0/plg_leaflet_map_1.1.0.zip
+        https://github.com/grantiago/leafletmap_plugin/releases/download/1.2.0/plg_leaflet_map_1.2.0.zip
       </downloadsource>
 
-      <sha256>a5ec29269c5c32718429365ee2ba3792c17d8656e82ab661d1b683d736827f98</sha256>
+      <sha256>de245524a0f4d1993e4ae446fce3d45c0e61ae9599bcaa7f93ba3d1506f26ca4</sha256>
     </downloads>
 
     <tags>
